@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { __ } from '@wordpress/i18n'
 import { withSelect } from '@wordpress/data';
 import { InnerBlocks, Inserter } from '@wordpress/block-editor';
@@ -21,13 +21,19 @@ const INNER_BLOCKS_TEMPLATE = [
 const Edit = props => {
 	const { attributes, setAttributes, clientId, innerBlocks } = props;
 	const { tabs, ContentBackgroundColor, BackgroundColor, HoverBackgroundColor, iconColor, padding } = attributes;
+	const [firstClientId, setFirstClientId] = useState(null)
 
 // console.log(iconColor);
 
 	useEffect(() => { clientId && setAttributes({ cId: clientId.substring(0, 10) }); }, [clientId]); // Set & Update clientId to cId
 
 	useEffect(() => {
-		const newTabs = innerBlocks?.map(({ clientId, attributes: { title, mediaType, iconClass, imgURL } }) => ({ clientId, title, mediaType, iconClass, imgURL }));
+		const newTabs = innerBlocks?.map(({ clientId, attributes: { title, mediaType, iconClass, imgURL } }, index) => {
+			if(index === 0){
+				setFirstClientId(clientId)
+			}
+			return { clientId, title, mediaType, iconClass, imgURL };
+		});
 
 		setAttributes({ tabs: newTabs });
 	}, [innerBlocks]);
@@ -37,6 +43,10 @@ const Edit = props => {
 
 		listEls[0] && tabInit(listEls[0], clientId);
 	}, [])
+
+	useEffect(() => {
+		tabInit(document.querySelector(`#tcbTabbedContent-${clientId} .tabMenu > li`), clientId)
+	}, [firstClientId])
 
 	function tabDelete(clientId) {
 		wp.data.dispatch('core/editor').removeBlock(clientId);
