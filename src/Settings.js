@@ -3,7 +3,7 @@ import { InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, PanelRow, __experimentalBoxControl as BoxControl } from '@wordpress/components';
 
 // import { Label, BtnGroup, IconControl, InlineMediaUpload, } from './Components'
-import { Background } from './Components'
+import { BColor, Background } from './Components'
 
 // import { mediaTypes } from './utils/options';
 
@@ -13,20 +13,26 @@ import { Background } from './Components'
 ///////////////// Tap Manue ///////////////////////////////
 
 const Settings = ({ attributes, setAttributes }) => {
-	const { padding, ContentBackgroundColor, BackgroundColor, HoverBackgroundColor } = attributes;
-
+	const { padding, ContentBackgroundColor, BackgroundColor, HoverBackgroundColor, iconColor } = attributes;
+// console.log(iconColor);
 	return <InspectorControls>
 		<PanelBody className='bPlPanelBody' title={__('Tcb', 'stepped-content')}>
-
+		<BColor
+				label={__("Icon Color", "tcb")}
+				value={iconColor}
+				onChange={(val) =>
+					setAttributes({ iconColor: val })
+				}
+			/>
 			<Background
-				label={__("Content Bg Color", "info-cards")}
+				label={__("Content Bg Color", "tcb")}
 				value={ContentBackgroundColor}
 				onChange={(val) =>
 					setAttributes({ ContentBackgroundColor: val })
 				}
 			/>
 			<Background
-				label={__("Tab Bg Color", "info-cards")}
+				label={__("Tab Bg Color", "tcb")}
 				value={BackgroundColor}
 				onChange={(val) =>
 					setAttributes({ BackgroundColor: val })
@@ -34,7 +40,7 @@ const Settings = ({ attributes, setAttributes }) => {
 			/>
 
 			<Background
-				label={__("Tab Active Bg Color", "info-cards")}
+				label={__("Tab Active Bg Color", "tcb")}
 				value={HoverBackgroundColor}
 				onChange={(val) =>
 					setAttributes({ HoverBackgroundColor: val })
@@ -43,7 +49,7 @@ const Settings = ({ attributes, setAttributes }) => {
 
 			<PanelRow className="mt20">
 				<BoxControl
-					label={__("Paddign", "info-cards")}
+					label={__("Paddign", "tcb")}
 					values={padding}
 					resetValues={{
 						"top": "0px",

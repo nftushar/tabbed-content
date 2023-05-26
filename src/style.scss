@@ -5,6 +5,10 @@
  * Replace them with your own styles or remove the file completely.
  */
 
+ .pageContent .container {
+    background: none !important;
+}
+
 html :where(.editor-styles-wrapper) ol,
 html :where(.editor-styles-wrapper) ul {
 	box-sizing: border-box;
@@ -77,7 +81,7 @@ html :where(.editor-styles-wrapper) ul {
 
 			i {
 				font-size: 32px;
-				color: #10d56d;
+				// color: #10d56d;
 			}
 
 			.fa-solid.fa-xmark {

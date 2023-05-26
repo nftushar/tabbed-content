@@ -1,14 +1,14 @@
 import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, PanelRow, TextControl, } from '@wordpress/components';
-
-import { Label, BtnGroup, IconControl, InlineMediaUpload, } from '../Components'
+import { Label, BtnGroup, IconControl, InlineMediaUpload, Background } from '../Components'
 // import { Background } from '../Components'
 
 import { mediaTypes } from '../utils/options';
 
 const Settings = ({ attributes, setAttributes }) => {
-	const { title, mediaType, iconClass, imgURL, backgroundColor } = attributes;
+	const { title, mediaType, iconClass, imgURL, iconColor, backgroundColor } = attributes;
+	
 
 	return <InspectorControls>
 		<PanelBody className='bPlPanelBody' title={__('Tcb', 'stepped-content')}>
@@ -26,6 +26,7 @@ const Settings = ({ attributes, setAttributes }) => {
 				<Label>{__('Image:', 'tcb')}</Label>
 				<InlineMediaUpload value={imgURL} onChange={val => setAttributes({ imgURL: val })} placeholder={__('Enter Image URL', 'tcb')} />
 			</>}
+		
 		</PanelBody>
 	</InspectorControls>;
 };

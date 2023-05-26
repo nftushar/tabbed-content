@@ -20,8 +20,9 @@ const INNER_BLOCKS_TEMPLATE = [
 
 const Edit = props => {
 	const { attributes, setAttributes, clientId, innerBlocks } = props;
-	const { tabs, ContentBackgroundColor, BackgroundColor, HoverBackgroundColor, padding } = attributes;
+	const { tabs, ContentBackgroundColor, BackgroundColor, HoverBackgroundColor, iconColor, padding } = attributes;
 
+// console.log(iconColor);
 
 	useEffect(() => { clientId && setAttributes({ cId: clientId.substring(0, 10) }); }, [clientId]); // Set & Update clientId to cId
 
@@ -46,6 +47,10 @@ const Edit = props => {
 
 		<style>
 			{`
+						.wp-block-tcb-tabs .tabMenu li i{
+							color: ${iconColor}
+						}
+
 						#wp-block-tcb-tabs-${clientId} .tabMenu {
 						 padding: ${getBoxValue(padding)}
 						}
@@ -81,7 +86,8 @@ const Edit = props => {
 					return <li key={index} onClick={onListClick} className={index == 0 ? "active" : " "}>
 
 						<i onClick={() => tabDelete(item.clientId)} className="fa-solid fa-xmark" ></i>
-						<i className={iconClass}></i>
+					
+					       	<i className={iconClass}></i>
 
 						<img src={imgURL} />
 

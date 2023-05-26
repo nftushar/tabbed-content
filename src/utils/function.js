@@ -28,7 +28,7 @@ export const tabInit = (el, clientId) => {
 
     const bodyEl = bodyEls[getIndex(el)];
     addClass(bodyEl, 'active');
-    console.log({ bodyEl })
+    // console.log({ bodyEl })
 
     // Opacity Transition Class
     timerOpacity = setTimeout(() => {

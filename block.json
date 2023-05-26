@@ -59,6 +59,10 @@
 				"left": "0px"
 			}
 		},
+		"iconColor": {
+			"type": "string",
+			"default": "#41FB76B3"
+		},
 		"ContentBackgroundColor": {
 			"type": "object",
 			"default": {
