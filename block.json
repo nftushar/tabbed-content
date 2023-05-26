@@ -53,10 +53,10 @@
 		"padding": {
 			"type": "object",
 			"default": {
-				"top": "50px",
-				"right": "0",
-				"bottom": "2px",
-				"left": "0"
+				"top": "0px",
+				"right": "0px",
+				"bottom": "0px",
+				"left": "0px"
 			}
 		},
 		"ContentBackgroundColor": {

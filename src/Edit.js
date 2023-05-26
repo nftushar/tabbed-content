@@ -12,9 +12,9 @@ import Settings from './Settings';
 
 
 const INNER_BLOCKS_TEMPLATE = [
-	['tcb/tab', { title: 'HTML5 Audio Player', mediaType: 'icon', iconClass: 'fab fa-affiliatetheme', imgURL: '' }],
-	['tcb/tab', { title: 'HTML5 Video Player', mediaType: 'icon', iconClass: 'fab fa-affiliatetheme', imgURL: '' }],
-	['tcb/tab', { title: 'PDF Poster', mediaType: 'icon', iconClass: 'fab fa-affiliatetheme', imgURL: '' }]
+	['tcb/tab', { title: 'HTML5 Audio Player', mediaType: 'icon', iconClass: 'fab fa-html5', imgURL: '' }],
+	['tcb/tab', { title: 'HTML5 Video Player', mediaType: 'icon', iconClass: 'fab fa-html5', imgURL: '' }],
+	['tcb/tab', { title: 'HTML5 Video Player', mediaType: 'icon', iconClass: 'fab fa-html5', imgURL: '' }]
 ];
 
 
